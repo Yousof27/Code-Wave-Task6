@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Day2-js Task1</title>
+</head>
+
+<body>
+    <form>
+        <h3 class="form-title">Calculator</h3>
+        <input type="number" value="0">
+        <input type="number" value="0">
+        <input type="submit" value="احسب">
+        <table>
+            <tr>
+                <td class="sum">0</td>
+                <td>=</td>
+                <td>جمع</td>
+            </tr>
+            <tr>
+                <td class="sub">0</td>
+                <td>=</td>
+                <td>طرح</td>
+            </tr>
+            <tr>
+                <td class="mult">0</td>
+                <td>=</td>
+                <td>ضرب</td>
+            </tr>
+            <tr>
+                <td class="div">0</td>
+                <td>=</td>
+                <td>قسمة</td>
+            </tr>
+            <tr>
+                <td class="mod">0</td>
+                <td>=</td>
+                <td>باقي القسمة</td>
+            </tr>
+        </table>
+    </form>
+
+    <div onclick="activeSide()" class="overlay"></div>
+    <div class="side">
+        <h2 class="title">History</h2>
+        <div class="items-con"></div>
+        <button onclick="activeSide()" class="icon">🕒</button>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

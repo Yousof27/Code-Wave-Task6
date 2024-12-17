@@ -1,0 +1,249 @@
+* {
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #111;
+    color: white;
+}
+
+form {
+    width: 300px;
+    padding: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0px 0px 5px aqua;
+    border-radius: 10px;
+    background-color: #111;
+}
+
+.form-title {
+    font-size: 35px;
+    margin: 20px 0px;
+    text-align: center;
+    text-shadow: 0px 0px 10px aqua, 0px 0px 20px aqua, 0px 0px 40px aqua, 0px 0px 80px aqua;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:not([type="submit"]) {
+        background-color: #222;
+        color: white;
+    }
+
+    &[type="submit"] {
+        background-color: transparent;
+        box-shadow: 0px 0px 3px aqua, 0px 0px 3px aqua inset;
+        border-radius: 6px;
+        color: white;
+        font-weight: bold;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: aqua;
+            color: black;
+        }
+    }
+}
+
+table tr {
+    display: flex;
+
+    >td:first-child {
+        flex: 1;
+        text-align: right;
+    }
+
+    >td:nth-child(2) {
+        background-color: #24242424;
+    }
+
+    >td:last-child {
+        background-color: #24242424;
+        text-align: right;
+        width: 85px;
+    }
+}
+
+table tr td {
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+}
+
+/* ---------------------------- */
+/* ---------------------------- */
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    z-index: 3;
+    transition: 0.3s;
+    visibility: hidden;
+    opacity: 0;
+
+    &.active {
+        visibility: visible;
+        opacity: 0.7;
+    }
+}
+
+.side {
+    width: 150px;
+    height: 100vh;
+    background-color: #1b1b1b;
+    padding: 15px;
+    position: fixed;
+    z-index: 4;
+    top: 0%;
+    left: 0%;
+    transform: translateX(-100%);
+    transition: 0.3s;
+
+    &.active {
+        transform: translateX(0%);
+
+        >.icon {
+            opacity: 1;
+        }
+    }
+}
+
+.side .icon {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(100%, -50%);
+    background-color: white;
+    padding: 1px;
+    font-size: 25px;
+    border-radius: 0px 50% 50% 0px;
+    cursor: pointer;
+    opacity: 0.2;
+    transition: 0.3s;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.side .title {
+    text-align: center;
+    color: orangered;
+    margin-bottom: 20px;
+}
+
+.side .items-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.side .item {
+    display: flex;
+    cursor: pointer;
+    position: relative;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0%;
+        width: 45px;
+        height: 45px;
+        z-index: -1;
+    }
+
+    &::before {
+        left: 0%;
+        border-radius: 20px 0px 0px 20px;
+        box-shadow: 0px 0px 5px orangered;
+    }
+
+    &::after {
+        right: 0%;
+        border-radius: 0px 20px 20px 0px;
+        box-shadow: 0px 0px 5px aqua;
+    }
+
+    &:hover>span {
+        color: white;
+
+        &:first-child {
+            background-color: orangered;
+        }
+
+        &:nth-child(2) {
+            background-color: aqua;
+
+            &::after {
+                z-index: -1;
+            }
+        }
+
+        &:last-child {
+            z-index: 1;
+            opacity: 1;
+        }
+    }
+
+    >span {
+        flex: 1;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        background-color: #1b1b1b;
+        transition: 0.3s;
+
+        &:first-child {
+            border-radius: 20px 0px 0px 20px;
+            color: aqua;
+            font-weight: bold;
+        }
+
+        &:nth-child(2) {
+            border-radius: 0px 20px 20px 0px;
+            color: orangered;
+            font-weight: bold;
+        }
+
+        &:last-child {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 5px black;
+            color: red;
+            top: -7px;
+            right: -7px;
+            z-index: -1;
+            opacity: 0.5;
+
+            &:hover {
+                background-color: red;
+                color: white;
+            }
+        }
+    }
+}
